@@ -6,6 +6,7 @@ import java.util.*;
 class fcfs extends input{
   int wt[] = new int[30];
   int tat[] = new int[30];
+  int ct[] = new int[30];
   float Awt=0,Atat=0;
   public void findWaitingTime(){
 
@@ -54,20 +55,30 @@ class fcfs extends input{
     for(int i=0;i<n;i++){
       total_wt = total_wt + wt[i];
         total_tat = total_tat + tat[i];
-        int compl_time = tat[i] + at[i];
+        ct[i] = tat[i] + at[i];
         System.out.println(i+1 + "\t\t" + bt[i] + "\t\t"
             + at[i] + "\t\t" + wt[i] + "\t\t "
-            + tat[i] + "\t\t " + compl_time);
+            + tat[i] + "\t\t " + ct[i]);
     }
     System.out.print("Average waiting time = "
        + (float)total_wt / (float)n);
    System.out.print("\nAverage turn around time = "
        + (float)total_tat / (float)n);
   }
-  
+
+  void gannchart(){
+    System.out.println("\nGann chart : ");
+    System.out.print("0 ");
+    for(int i=0;i<n;i++){
+      System.out.print("(" + pno[i] + ")" + ct[i]);
+    }
+
+  }
+
   public static void main(String s[]){
     fcfs p = new fcfs();
     p.read();
     p.findavgTime();
+    p.gannchart();
   }
 }

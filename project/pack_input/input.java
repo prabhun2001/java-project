@@ -2,30 +2,39 @@ package pack_input;
 import java.util.*;
 
 public class input{
-  public int n;
-  public int pno[] = new int[30];
-  public int at[] = new int[30];
-  public int bt[] = new int[30];
-  Scanner in = new Scanner(System.in);
+   protected int n;
+   protected ArrayList<Integer> pno = new ArrayList<Integer>(n);
+   protected ArrayList<Integer> at = new ArrayList<Integer>(n);
+   protected ArrayList<Integer> bt = new ArrayList<Integer>(n);
+   Scanner in = new Scanner(System.in);
+   Random rand = new Random();
 
-  public void read() {
-    System.out.println("enter the number of processes : ");
-    n = in.nextInt();
-    System.out.println("enter the arrival times and Burst time : ");
-    System.out.println("process number \t arrival time \t burst time");
-    for(int i=0;i<n;i++){
-      pno[i]=in.nextInt();
-
-    }
-    for(int i=0;i<n;i++){
-
-      at[i]=in.nextInt();
-
-    }
-    for(int i=0;i<n;i++){
+   protected void read_byuser() {
+      System.out.println("enter the number of processes : ");
+      n = in.nextInt();
+      System.out.println("enter the arrival times and Burst time : ");
+      System.out.println("process number \t arrival time \t burst time");
+      for(int i=0;i<n;i++){
+         pno.add(in.nextInt());
+         at.add(in.nextInt());
+         bt.add(in.nextInt());
+      }
       
-      bt[i]=in.nextInt();
-    }
-  }
+   }
+   
+   protected void read_random() {
+      System.out.println("enter the number of processes : ");
+      n = in.nextInt();
+      System.out.println("enter the arrival times and Burst time : ");
+      System.out.println("process number \t arrival time \t burst time");
+      for(int i=0;i<n;i++){
+         pno.add(i+1);
+         at.add(rand.nextInt(20));
+         bt.add(rand.nextInt(20));
+      }
+      
+   }
+
+   
 
 }
