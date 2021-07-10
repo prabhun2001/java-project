@@ -3,7 +3,7 @@ package pack_main;
 import pack_shedule.*;
 import java.util.*;
 
-class main{
+public class main{
    int n;
    ArrayList<Integer> pno = new ArrayList<Integer>(30);
    ArrayList<Integer> at = new ArrayList<Integer>(30);
