@@ -3,18 +3,18 @@ import pack_input.*;
 import java.util.*;
 
 public class sjf extends input{
-   ArrayList<Integer> sjf_wt = new ArrayList<Integer>(n); // sjf_ct means complete time
-   ArrayList<Integer> sjf_tat = new ArrayList<Integer>(n); // ta means turn around time
-   float Awt,Atat;
+   public ArrayList<Integer> sjf_wt = new ArrayList<Integer>(n); // sjf_ct means complete time
+   public ArrayList<Integer> sjf_tat = new ArrayList<Integer>(n); // ta means turn around time
+   public float Awt,Atat;
    ArrayList<Integer> f = new ArrayList<Integer>(n);  // f means it is flag it checks process is completed or not
    int st=0, tot=0; //system time & total no of process
-   ArrayList<Integer> sjf_ct = new ArrayList<Integer>(n);
-   ArrayList<Integer> sjf_gct = new ArrayList<Integer>(30);
-   ArrayList<Integer> sjf_gpno = new ArrayList<Integer>(30);
-   
+   public ArrayList<Integer> sjf_ct = new ArrayList<Integer>(n);
+   public ArrayList<Integer> sjf_gct = new ArrayList<Integer>(30);
+   public ArrayList<Integer> sjf_gpno = new ArrayList<Integer>(30);
+
    public sjf(int n,ArrayList<Integer> pno,ArrayList<Integer> at,ArrayList<Integer> bt){
          read(n,pno,at,bt);
-         
+
    }
 
       public void findavgtime(){
@@ -97,16 +97,16 @@ public class sjf extends input{
     }
 
   }
-  
+
    public float get_avg_tat(){
   return Atat;
   }
-  
+
   public float get_avg_wt(){
    return Awt;
   }
 
-      
+
    public void schedule(){
    findavgtime();
    gannchart();

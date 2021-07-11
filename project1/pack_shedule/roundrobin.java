@@ -3,33 +3,35 @@ import java.util.*;
 import pack_input.*;
 
 public class roundrobin extends input implements methods{
-  ArrayList<Integer> rr_ct = new ArrayList<Integer>(n);
-  ArrayList<Integer> rr_wt = new ArrayList<Integer>(n);
+  public ArrayList<Integer> rr_ct = new ArrayList<Integer>(n);
+  public ArrayList<Integer> rr_wt = new ArrayList<Integer>(n);
   ArrayList<Integer> rtime = new ArrayList<Integer>(n);
-  ArrayList<Integer> rr_tat = new ArrayList<Integer>(n);
-  ArrayList<Integer> rr_gpno = new ArrayList<Integer>(30);
-  ArrayList<Integer> rr_gct = new ArrayList<Integer>(30);
-   
+public  ArrayList<Integer> rr_tat = new ArrayList<Integer>(n);
+  public ArrayList<Integer> rr_gpno = new ArrayList<Integer>(30);
+  public ArrayList<Integer> rr_gct = new ArrayList<Integer>(30);
+
   Scanner s=new Scanner(System.in);
-  int quantum,total;
-  int itr=0;
-  float Awt,Atat;
-  
-  public roundrobin(int n,ArrayList<Integer> pno,ArrayList<Integer> at,ArrayList<Integer> bt){
+  public int quantum;
+  int total;
+  public int itr=0;
+  public float Awt,Atat;
+
+  public roundrobin(int n,ArrayList<Integer> pno,ArrayList<Integer> at,ArrayList<Integer> bt,int tq){
       read(n,pno,at,bt);
+      quantum=tq;
   }
 
   void calculation(){
 
-      System.out.println("\nEnter the time quantum:");
-      quantum=s.nextInt();
-      
+      //System.out.println("\nEnter the time quantum:");
+      //quantum=s.nextInt();
+
       int rp=n;
       int i=0;
       int time=0;
       rr_wt.set(0,0);
       while(rp!=0){
-           
+
           if(rtime.get(i)>quantum)
           {
               rtime.set(i,rtime.get(i)-quantum);
@@ -66,15 +68,15 @@ public class roundrobin extends input implements methods{
         rr_wt.add(0);
         rtime.add(0);
         rr_tat.add(0);
-      
+
     }
     for(int i=0;i<n;i++)
       {
          rtime.set(i,bt.get(i));
       }
- 
+
     calculation();
-    
+
     for(int i=0;i<n;i++){
       rr_wt.set(i,rr_ct.get(i)-bt.get(i));
        rr_tat.set(i,rr_ct.get(i));
@@ -100,11 +102,11 @@ public class roundrobin extends input implements methods{
       System.out.print(" ("+ rr_gpno.get(i) + ") " + rr_gct.get(i));
     }
   }
-  
+
   public float get_avg_tat(){
   return Atat;
   }
-  
+
   public float get_avg_wt(){
    return Awt;
   }
@@ -113,6 +115,4 @@ public class roundrobin extends input implements methods{
    findavgtime();
    gannchart();
   }
-	
-   
 }

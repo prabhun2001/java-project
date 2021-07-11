@@ -3,15 +3,15 @@ import pack_input.*;
 import java.util.*;
 
 public class fcfs extends input implements methods {
-  ArrayList<Integer> fcfs_wt = new ArrayList<Integer>(n);
-  ArrayList<Integer> fcfs_tat = new ArrayList<Integer>(n);
-  ArrayList<Integer> fcfs_ct = new ArrayList<Integer>(n);
-  float Awt=0,Atat=0;
-  
+  public ArrayList<Integer> fcfs_wt = new ArrayList<Integer>(n);
+  public ArrayList<Integer> fcfs_tat = new ArrayList<Integer>(n);
+  public ArrayList<Integer> fcfs_ct = new ArrayList<Integer>(n);
+  public float Awt=0,Atat=0;
+
   public fcfs(int n,ArrayList<Integer> pno,ArrayList<Integer> at,ArrayList<Integer> bt){
       read(n,pno,at,bt);
   }
-  
+
   public void findWaitingTime(){
 
       ArrayList<Integer> service_time = new ArrayList<Integer>(n);
@@ -64,15 +64,15 @@ public class fcfs extends input implements methods {
             + at.get(i) + "\t\t" + fcfs_wt.get(i) + "\t\t "
             + fcfs_tat.get(i) + "\t\t " + fcfs_ct.get(i));
     }
-    
+
     Awt=(float)total_wt / (float)n;
 
     System.out.print("Average waiting time = "+Awt);
-   
-    Atat=(float)total_tat / (float)n; 
+
+    Atat=(float)total_tat / (float)n;
     System.out.print("\nAverage turn around time = "+ Atat);
-       
-      
+
+
   }
 
   public void gannchart(){
@@ -83,11 +83,11 @@ public class fcfs extends input implements methods {
     }
 
   }
-  
+
   public float get_avg_tat(){
   return Atat;
   }
-  
+
   public float get_avg_wt(){
    return Awt;
   }
